@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Luis Alberto Chi Tut</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .cv-container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .sidebar {
+            width: 35%;
+            background: linear-gradient(135deg, #1a2a6c, #2d50b7);
+            color: white;
+            padding: 30px 20px;
+        }
+        
+        .main-content {
+            width: 65%;
+            padding: 30px;
+            background-color: #fff;
+        }
+        
+        .profile {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 15px;
+            background-color: #f1f1f1;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        
+        .profession {
+            font-size: 16px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .sidebar .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #fff;
+        }
+        
+        .main-content .section-title {
+            color: #1a2a6c;
+        }
+        
+        .main-content .section-title:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #1a2a6c;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+        
+        .skill-item {
+            background-color: rgba(255,255,255,0.2);
+            margin: 5px;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+        
+        .languages-list {
+            list-style: none;
+        }
+        
+        .languages-list li {
+            margin-bottom: 10px;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 3px;
+            margin-top: 5px;
+            position: relative;
+        }
+        
+        .progress {
+            height: 100%;
+            background-color: #fff;
+            border-radius: 3px;
+        }
+        
+        .divider {
+            height: 1px;
+            background-color: rgba(255,255,255,0.1);
+            margin: 30px 0;
+        }
+        
+        .main-sections {
+            margin-bottom: 30px;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #1a2a6c;
+        }
+        
+        .timeline-item:after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background-color: rgba(26, 42, 108, 0.3);
+        }
+        
+        .timeline-item:last-child:after {
+            display: none;
+        }
+        
+        .timeline-date {
+            font-weight: 500;
+            color: #1a2a6c;
+            margin-bottom: 5px;
+            display: inline-block;
+            background-color: rgba(26, 42, 108, 0.1);
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .timeline-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .timeline-subtitle {
+            font-style: italic;
+            margin-bottom: 10px;
+            color: #666;
+        }
+        
+        .timeline-content {
+            color: #555;
+            font-size: 15px;
+        }
+        
+        .quote {
+            background-color: #f8f9fa;
+            border-left: 4px solid #1a2a6c;
+            padding: 15px;
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+        }
+        
+        .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+        .hobby-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .hobby-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(26, 42, 108, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        
+        .hobby-name {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Sidebar / Columna Izquierda -->
+        <div class="sidebar">
+            <!-- Perfil -->
+            <div class="profile">
+                <img src="yo2023.jpg" alt="Foto" class="profile-img">
+                <h1 class="name">Luis Alberto Chi Tut</h1>
+                <p class="profession">Estudiante de Bachillerato Técnico</p>
+            </div>
+            
+            <!-- Información de contacto -->
+            <div class="contact-info">
+                <h2 class="section-title">Contacto</h2>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>
+                        <p>+52 9851073248</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <p>lchi1923@yuc.conalep.edu</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <p>Valladolid, Yucatán<br>C.P. 97780</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <!-- Habilidades -->
+            <div>
+                <h2 class="section-title">Habilidades</h2>
+                <div class="skills-list">
+                    <span class="skill-item">Usar computadora</span>
+                    <span class="skill-item">Usar internet</span>
+                    <span class="skill-item">Atención al cliente</span>
+                    <span class="skill-item">Responsabilidad</span>
+                    <span class="skill-item">Puntualidad</span>
+                    <span class="skill-item">Limpieza</span>
+                </div>
+            </div>
+            
+            <!-- Idiomas -->
+            <div>
+                <h2 class="section-title">Idiomas</h2>
+                <ul class="languages-list">
+                    <li>
+                        <div class="language-name">Español</div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 100%;"></div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="language-name">Inglés</div>
+                        <div class="progress-bar">
+                            <div class="progress" style="width: 40%;"></div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Contenido principal / Columna Derecha -->
+        <div class="main-content">
+            <!-- Cita personal -->
+            <div class="quote">
+                "Me gusta aprender cosas nuevas y estoy dispuesto a esforzarme para cumplir mis metas."
+            </div>
+            
+            <!-- Perfil -->
+            <div class="main-sections">
+                <h2 class="section-title">Perfil</h2>
+                <p>Estudiante de bachillerato técnico en CONALEP. Soy una persona responsable y con deseos de aprender. Me gusta trabajar en equipo y estoy interesado en adquirir nuevas habilidades que me ayuden en mi formación académica y personal.</p>
+            </div>
+            
+            <!-- Educación -->
+            <div class="main-sections">
+                <h2 class="section-title">Formación Académica</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025 - Presente</div>
+                    <h3 class="timeline-title">Bachillerato Técnico</h3>
+                    <h4 class="timeline-subtitle">CONALEP - Valladolid, Yucatán</h4>
+                    <div class="timeline-content">
+                        <p>Cursando actualmente el cuarto semestre.</p>
+                    </div>
+                </div>
+                
+            
+            <!-- Experiencia -->
+            <div class="main-sections">
+                <h2 class="section-title">Experiencia</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Dic 2024 - Ene 2025</div>
+                    <h3 class="timeline-title">Ayudante</h3>
+                    <h4 class="timeline-subtitle">Tienda de abarrotes local</h4>
+                    <div class="timeline-content">
+                        <p>Atención básica a clientes.</p>
+                        <p>Ayuda en acomodo de mercancía.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Verano 2024</div>
+                    <h3 class="timeline-title">Cajero</h3>
+                    <h4 class="timeline-subtitle">Tienda de conveniencia</h4>
+                    <div class="timeline-content">
+                        <p>Cobro a clientes.</p>
+                        <p>Limpieza del área de trabajo.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Proyectos y Logros -->
+            <div class="main-sections">
+                <h2 class="section-title">Actividades y Participaciones</h2>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2025</div>
+                    <h3 class="timeline-title">Asistencia a curso básico de computación</h3>
+                    <div class="timeline-content">
+                        <p>Participación en curso de uso básico de Office.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2024</div>
+                    <h3 class="timeline-title">Apoyo en actividades escolares</h3>
+                    <div class="timeline-content">
+                        <p>Colaboración en la limpieza y organización del salón.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pasatiempos -->
+            <div class="main-sections">
+                <h2 class="section-title">Intereses</h2>
+                <div class="hobbies-list">
+                    <div class="hobby-item">
+                        <div class="hobby-icon">🎮</div>
+                        <span class="hobby-name">Videojuegos</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">🎵</div>
+                        <span class="hobby-name">Música</span>
+                    </div>
+                    <div class="hobby-item">
+                        <div class="hobby-icon">📱</div>
+                        <span class="hobby-name">Redes sociales</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
